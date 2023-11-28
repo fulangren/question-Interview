@@ -2,7 +2,7 @@
  * @Author: fulangren 1746575462@qq.com
  * @Date: 2023-11-27 10:40:26
  * @LastEditors: fulangren 1746575462@qq.com
- * @LastEditTime: 2023-11-27 17:23:41
+ * @LastEditTime: 2023-11-28 09:25:14
  * @FilePath: \question-Interview\high-frequent\js-proto\README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -54,8 +54,8 @@ const yygNew = (fn, ...args) => {
 5. 原型链
 
 ### 回答参考
-1. 
-2. 
+1. 每个构造函数（constructor）都有一个原型对象（prototype），原型对象都包含一个指向构造函数的指针，而实例（instance）都包含一个指向原型对象的内部指针。
+2. 原型存在的意义就是组成原型链，原型链存在的意义就是继承，继承存在的意义就是属性共享：代码重用；可扩展【不同对象可能继承相同的属性，也可以定义只属于自己的属性】。
 3. prototype 和 \__proto__有啥区别，又有啥关系呢
     * prototype：显示原型。
     * \__proto__：隐式原型。
@@ -85,9 +85,6 @@ const yygNew = (fn, ...args) => {
     console.log(Function.prototype.__proto__ === Object.prototype); //  true
     ```
     * 那什么是原型链呢，\__proto__的路径就叫原型链，一直到原型链的终点 **null**。
-
-
-
 
 
 ### 备注：
