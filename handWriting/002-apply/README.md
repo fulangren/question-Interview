@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
+## $\color{#ff00ff}{手写apply}$
 
-<script>
+### 思路分析
+1. apply 方式的作用
+2. 与 call 区别
 
+### 参考代码
+1. 在 JS 中, $\color{#ff00ff}{apply}$ 和 $\color{#00a361}{call}$ 都是为了改变某个函数运行时的上下文。
+2. 与  $\color{#00a361}{call}$ 区别：参数传递
+```
 var name = "yyg";
 var person = {
   name: "code-name",
@@ -28,7 +23,6 @@ Function.prototype.yygApply = function(context, arr) {
     for (let i = 0; i < arr.length; i++) {
       args.push(`arr[${i}]`)
     };
-    console.log(args)
     res = eval(`context.fn(${args})`)
     delete context.fn;
     return res;
@@ -42,6 +36,4 @@ person.say.apply(window, [1,2,4]);
 person.say.yygApply(window, [1, 2, 3]); 
 // yyg
 // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
-
-
-</script>
+```
