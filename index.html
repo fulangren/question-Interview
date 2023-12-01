@@ -10,38 +10,27 @@
   
 </body>
 </html>
-
 <script>
 
-var name = "yyg";
-var person = {
-  name: "code-name",
-  say() {
-    console.log("---", this.name);
-    console.log("---", arguments);
+var firstCompleteIndex = function (arr, mat) {
+  let n = mat.length, m = mat[0].length;
+  let yygMap = new Map();
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      yygMap.set(mat[i][j], [i, j])
+    }
+  }
+  let n_l = Array(n).fill(0), m_l = Array(m).fill(0);
+  for (let i = 0, len = arr.length; i < len; i++) {
+    let pos = yygMap.get(arr[i]);
+    console.log("pos", pos);
+    if(++n_l[pos[0]] >= m || ++m_l[pos[1]] >=n){
+      return i
+    }
   }
 };
-Function.prototype.yygApply = function(context, arr) {
-  var context = context || window, args = [], res = "";
-  context.fn = this;
-  if(Array.isArray(arr)) {
-    for (let i = 0; i < arr.length; i++) {
-      args.push(`arr[${i}]`)
-    };
-    console.log(args)
-    res = eval(`context.fn(${args})`)
-    delete context.fn;
-    return res;
-  } else {
-    return this;
-  }
-};
-person.say.apply(window, [1,2,4]); 
-// yyg
-// Arguments(3) [1, 2, 4, callee: ƒ, Symbol(Symbol.iterator): ƒ]
-person.say.yygApply(window, [1, 2, 3]); 
-// yyg
-// Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
 
+let res = firstCompleteIndex([2,8,7,4,1,3,5,6,9], [[3,2,5],[1,4,6],[8,7,9]]);
+console.log(res);
 
 </script>
