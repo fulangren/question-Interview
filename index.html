@@ -1,3 +1,11 @@
+<!--
+ * @Author: fulangren 1746575462@qq.com
+ * @Date: 2023-11-29 15:27:15
+ * @LastEditors: fulangren 1746575462@qq.com
+ * @LastEditTime: 2023-12-06 17:53:10
+ * @FilePath: \question-Interview\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,23 +15,19 @@
   <title>Document</title>
 </head>
 <body>
+
+  <button id="btn">点击</button>
   
 </body>
 </html>
 <script>
 
-var unique = function (arr) {
-  let newArr = [];
-  arr.sort((a,b) => a - b);
-  for (let i = 0, len = arr.length; i < len; i++) {
-    if(arr[i] !== arr[i - 1]) {
-      newArr.push(arr[i])
-    }
-  }
-  return newArr;
-};
+function debounceFu(fn, time = 1500) {
+  fn();
+}
 
-let res = unique([2,3,4,4,5,5,5,6,6]);
-console.log(res); //  [2, 3, 4, 5, 6]
+document.getElementById("btn").addEventListener("onClick", debounceFu(()=>{
+  console.log("click-debounce")
+}))
 
 </script>
